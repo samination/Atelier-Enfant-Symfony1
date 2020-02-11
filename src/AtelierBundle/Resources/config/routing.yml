@@ -1,0 +1,25 @@
+atelier_homepage:
+    path:     /
+    defaults: { _controller: AtelierBundle:Default:index }
+
+
+read_projet:
+    path:     /projet/read
+    defaults: { _controller: AtelierBundle:Atelier:read }
+
+
+
+delete_projet:
+    path:     /projet/delete/{id}
+    defaults: { _controller: AtelierBundle:Atelier:delete }
+
+
+detail_projet:
+    path:     /projet/detail/{id}
+    defaults: { _controller: AtelierBundle:Atelier:detail }
+
+
+
+create:
+    path:     /create
+    defaults: { _controller: AtelierBundle:Atelier:create }

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+{% block body %}
+    <fieldset>
+        <legend>Atelier de {{ projets.nom }} </legend>
+
+
+
+        <tr><td>Description:{{ projets.desciption }}</td></tr> <br/>
+        <tr><td>Type:{{ projets.type }}</td></tr> <br/>
+        <tr><td>Debut:{{ projets.dateDebut|date("m/d/Y")}}</td></tr> <br/>
+        <tr><td>Fin:{{ projets.dateFin|date("m/d/Y")}}</td></tr> <br/>
+        <tr><td>Nbr participant:{{ projets.nbr}}</td></tr> <br/>
+
+
+    </fieldset>
+
+
+    {% if var == 1 %}
+        <div id="bitch">
+            <h1>Date de l'atelier est expirée</h1>
+        </div>
+    {% else %}
+
+    {{ form_start(form) }}
+    <table>
+        <tr><td>Nom</td><td>{{ form_widget(form.nom) }}</td></tr>
+        <tr><td>Prenom</td><td>{{ form_widget(form.prenom) }}</td></tr>
+        <tr><td>Age</td><td>{{ form_widget(form.age) }}</td></tr>
+
+    </table>
+    {{ form_end(form) }}
+    {% endif %}
+
+{% endblock %}
+{% block javascripts %}
+
+    <script>
+
+
+        $(document).ready(function() {
+            $("h1").mouseover(function() {
+                $("h1").css("color", "red");
+            });
+        });
+
+    </script>
+{% endblock %}
+</body>
+</html>
+
+
+
+
+
+
+
+

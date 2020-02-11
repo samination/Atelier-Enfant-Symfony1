@@ -1,0 +1,27 @@
+
+
+
+
+{% block body %}
+    <h1>Liste des Projets</h1>
+    <table border="2">
+        <tr>
+            <th>Titre</th><th>Type</th><th>DateDeb</th><th>Datefin</th><th>nbr</th><th>Action</th>
+        </tr>
+        {% for projet in projets %}
+            <tr>
+
+                <td>{{ projet.nom }}</td>
+                <td>{{ projet.type }}</td>
+                  <td>{{ projet.dateDebut|date("m/d/Y")}}</td>
+                  <td>{{ projet.dateFin|date("m/d/Y")}}</td>
+                  <td>{{ projet.nbr}}</td>
+          <td><a href="{{ path('delete_projet',{'id':projet.id}) }}">Supprimer</a> </td>
+                <td><a href="{{ path('detail_projet',{'id':projet.id}) }}">Deatil</a> </td>
+
+    </tr>
+{% endfor %}
+
+</table>
+{# <a href="{{ path('create') }}">Affecter un Etudiant</a> #}
+{% endblock %}
